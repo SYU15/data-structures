@@ -9,5 +9,9 @@ var queueMethods = {};
 
 queueMethods.size = function(){
   return this.queueSize;
-}
+};
+
+queueMethods.enqueue = function(value){
+  this.queueSize++;
+};
 
