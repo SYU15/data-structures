@@ -11,12 +11,16 @@ stackMethods.size = function(){
   return this.stackSize;
 };
 
-stackMethods.push = function(){
+stackMethods.push = function(value){
+  this[this.stackSize] = value;
   this.stackSize++;
 };
 
-stackMethods.pop = function(value){
+stackMethods.pop = function(){
   if(this.stackSize > 0){
     this.stackSize--;
+    var value = this[this.stackSize];
+    delete this[this.stackSize];
+    return value;
   }
 };
