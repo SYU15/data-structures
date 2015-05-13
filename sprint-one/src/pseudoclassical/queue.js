@@ -6,3 +6,7 @@ var Queue = function() {
 Queue.prototype.size = function(){
   return this.last - this.next;
 };
+
+Queue.prototype.enqueue = function(value) {
+  this.last++;
+};
