@@ -24,6 +24,8 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  this.nodes[fromNode].splice(_.indexOf(this.nodes[fromNode], toNode), 1);
+  this.nodes[toNode].splice(_.indexOf(this.nodes[toNode], fromNode), 1);
 };
 
 Graph.prototype.forEachNode = function(cb){
