@@ -29,6 +29,9 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.forEachNode = function(cb){
+  _.each(this.nodes, function(value, key){
+    cb(key);
+  });
 };
 
 /*
