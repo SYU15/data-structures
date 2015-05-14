@@ -31,4 +31,4 @@ treeMethods.contains = function(target){
  *
  * addChild: O(1)
  * contains: O(n)
- * /
+ */
