@@ -15,10 +15,12 @@ Graph.prototype.removeNode = function(node){
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
+  return _.contains(this.nodes[fromNode], toNode);
 };
 
 Graph.prototype.addEdge = function(fromNode, toNode){
-  this.nodes.fromNode.push(toNode);
+  this.nodes[fromNode].push(toNode);
+  this.nodes[toNode].push(fromNode);
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
