@@ -11,6 +11,7 @@ Graph.prototype.contains = function(node){
 };
 
 Graph.prototype.removeNode = function(node){
+  delete this.nodes[node];
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
