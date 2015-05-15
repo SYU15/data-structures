@@ -36,7 +36,21 @@ binarySearchTreeMethods.insert = function(value){
 };
 
 binarySearchTreeMethods.contains = function(target){
+  if(this.value === target){
+    return true;
+  }
 
+  if(target < this.value){
+    if (this.left === null){
+      return false;
+    }
+    return this.left.contains(target);
+  } else { //target > this.value
+    if (this.right === null){
+      return false;
+    }
+    return this.right.contains(target);
+  }
 };
 
 binarySearchTreeMethods.depthFirstLog = function(){
