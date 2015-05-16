@@ -1,3 +1,13 @@
 var DoublyLinkedList = function(){
-  return LinkedList();
+  var doublyLinkedList = LinkedList();
+
+  doublyLinkedList.addToHead = function(value){
+
+  };
+
+  doublyLinkedList.removeTail = function(){
+
+  };
+
+  return doublyLinkedList;
 };
