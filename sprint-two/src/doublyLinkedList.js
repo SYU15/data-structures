@@ -11,3 +11,9 @@ var DoublyLinkedList = function(){
 
   return doublyLinkedList;
 };
+
+var DoubleNode = function(value){
+  var doubleNode = Node(value);
+  doubleNode.previous = null;
+  return doubleNode;
+};
