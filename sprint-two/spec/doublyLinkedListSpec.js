@@ -61,6 +61,11 @@ describe('doublyLinkedList', function() {
     expect(doublyLinkedList.removeHead()).to.equal(4);
   });
 
+  it("should return the value of the former tail when removeTail is called", function(){
+    doublyLinkedList.addToTail(4);
+    expect(doublyLinkedList.removeTail()).to.equal(4);
+  });
+
   it("should contain a value that was added", function(){
     doublyLinkedList.addToTail(4);
     doublyLinkedList.addToTail(5);
