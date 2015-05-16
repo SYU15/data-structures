@@ -25,11 +25,12 @@ describe('tree', function() {
 
   it('remove from parent should remove child from parent', function() {
     tree.addChild(5);
-    tree.addChild(6);
+    tree.children[0].addChild(6);
     expect(tree.children[0].children[0].parent.value).to.equal(5);
+    var orphan = tree.children[0].children[0];
     tree.children[0].children[0].removeFromParent();
-    expect(tree.children[0].children[0].parent).to.equal(null);
     expect(tree.children[0].children[0]).to.equal(undefined);
+    expect(orphan.parent).to.equal(null);
   });
 
 

@@ -17,9 +17,10 @@ treeMethods.addChild = function(value){
 
 treeMethods.removeFromParent = function(){
   if(this.parent){
-    _.each(this.parent.children, function(item, index){
-      if(item === this){
-        this.parent.children.splice(index, 1);
+    var currentTree = this;
+    _.each(this.parent.children, function(child, index){
+      if(child === currentTree){
+        currentTree.parent.children.splice(index, 1);
       }
     });
     this.parent = null;
