@@ -26,7 +26,9 @@ var DoublyLinkedList = function(){
   }
 
   doublyLinkedList.removeTail = function(){
+    var oldTail = doublyLinkedList.tail;
     doublyLinkedList.tail = doublyLinkedList.tail.previous;
+    return oldTail.value;
   };
 
   return doublyLinkedList;
