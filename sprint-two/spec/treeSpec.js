@@ -19,7 +19,7 @@ describe('tree', function() {
 
   it('child should have parent', function() {
     tree.addChild(5);
-    tree.addChild(6);
+    tree.children[0].addChild(6);
     expect(tree.children[0].children[0].parent.value).to.equal(5);
   });
 
@@ -29,7 +29,7 @@ describe('tree', function() {
     expect(tree.children[0].children[0].parent.value).to.equal(5);
     tree.children[0].children[0].removeFromParent();
     expect(tree.children[0].children[0].parent).to.equal(null);
-    expect(tree.children[0].children[0]).to.equal(null);
+    expect(tree.children[0].children[0]).to.equal(undefined);
   });
 
 
