@@ -13,6 +13,18 @@ var DoublyLinkedList = function(){
     }
   };
 
+  doublyLinkedList.addToTail = function(value){
+    var newTail = DoubleNode(value);
+    if(!doublyLinkedList.tail){
+      doublyLinkedList.tail = newTail;
+      doublyLinkedList.head = newTail;
+    } else {
+      newTail.previous = doublyLinkedList.tail;
+      doublyLinkedList.tail.next = newTail;
+      doublyLinkedList.tail = newTail;
+    }
+  }
+
   doublyLinkedList.removeTail = function(){
 
   };
