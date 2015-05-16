@@ -14,11 +14,7 @@ HashTable.prototype.insert = function(k, v){
   this._size++;
   if(this._size / this._limit >= 0.75){
     this._limit *= 2;
-    var newStorage = LimitedArray(this._limit);
-    this._storage.each(function(tuple){
-      newStorage.insert(tuple[0], tuple[1]);
-    });
-    this._storage = newStorage;
+    this.move();
   }
 };
 
@@ -43,7 +39,23 @@ HashTable.prototype.remove = function(k){
   });
   this._storage[i][indexOfKey] = [];
   this._size--;
+  if(this._size / this._limit < 0.25){
+    this._limit /= 2;
+    this.move();
+  }
 };
+
+HashTable.prototype.move = function() {
+  var oldStorage = this._storage;
+  this._storage = LimitedArray(this._limit);
+  var currentHashTable = this;
+  oldStorage.each(function(house){
+    for(var i = 0; i < house.length; i++){
+      currentHashTable.insert(house[i][0], house[i][1]);
+    }
+  });
+};
+
 
 
 
